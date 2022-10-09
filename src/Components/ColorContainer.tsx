@@ -6,7 +6,9 @@ const ColorContainer = () => {
     <Container maxWidth="sm">
       <Box
         sx={{
-          width: 500,
+          width: {
+            sm: 550,
+          },
           height: 200,
           backgroundColor: "#3B6078",
           mt: 15,
