@@ -1,3 +1,4 @@
+import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./Components/Navbar";
 import ColorContainer from "./Components/ColorContainer";
 import Buttons from "./Components/Buttons";
