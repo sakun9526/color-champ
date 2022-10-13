@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Colors from './utils/Colors.json';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const ColorContainer = () => {
   useEffect(() => {
