@@ -1,10 +1,11 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { ColorsDigits } from './utils/ColorsDigits';
+import { ColorContext } from '../Context/ColorContext';
 
 const ColorContainer = () => {
-  const [color, setColor] = useState('');
+  const { color, setColor } = useContext(ColorContext);
 
   const colorGenerator = () => {
     const randomColor = new Array(6)
