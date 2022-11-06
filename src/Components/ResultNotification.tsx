@@ -4,7 +4,6 @@ const ResultNotification = () => {
   const notify = () => toast.success("Wow so easy !");
   return (
     <>
-      <button onClick={notify}>Notify !</button>
       <ToastContainer
         position="top-center"
         autoClose={5000}

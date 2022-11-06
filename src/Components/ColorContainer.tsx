@@ -1,39 +1,22 @@
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import { useEffect, useState, useContext } from 'react';
-import { ColorsDigits } from './utils/ColorsDigits';
-import { ColorContext } from '../Context/ColorContext';
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import { ColorContext } from "../Context/ColorContext";
+import { useContext } from "react";
 
 const ColorContainer = () => {
-  const { color, setColor } = useContext(ColorContext);
-
-  const colorGenerator = () => {
-    const randomColor = new Array(6)
-      .fill('')
-      .map(() => {
-        return ColorsDigits[Math.floor(Math.random() * ColorsDigits.length)];
-      })
-      .join('');
-    console.log(randomColor);
-    return `#${randomColor}`;
-  };
-
-  useEffect(() => {
-    setColor(colorGenerator());
-  }, []);
-
+  const { containerColor } = useContext(ColorContext);
   return (
-    <Container maxWidth='sm'>
+    <Container maxWidth="sm">
       <Box
         sx={{
           width: {
             sm: 550,
           },
           height: 200,
-          backgroundColor: color,
+          backgroundColor: containerColor,
           mt: 15,
           borderRadius: 10,
-          borderColor: 'black',
+          borderColor: "black",
         }}
       />
     </Container>
