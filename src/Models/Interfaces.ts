@@ -3,4 +3,6 @@ export interface IColorContextState {
   selectedColor: string;
   buttonColors: string[];
   setSelectedColor: (color: string) => void;
+  setContainerColor: () => void
+  setButtonColors: () => void
 }

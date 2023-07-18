@@ -1,8 +1,8 @@
-import { Box } from '@mui/material';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import { useCallback, useContext } from 'react';
-import { ColorContext } from '../Context/ColorContext';
+import { Box } from "@mui/material";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import { useCallback, useContext } from "react";
+import { ColorContext } from "../Context/ColorContext";
 
 const Buttons = () => {
   const { buttonColors, setSelectedColor } = useContext(ColorContext);
@@ -20,33 +20,25 @@ const Buttons = () => {
     [setSelectedColor]
   );
 
-  // const showNotifications = useCallback(() => {
-  //   if (selectedColor === containerColor) {
-  //     toast.success('Wow so easy !');
-  //   } else {
-  //     toast.error('Bad luck');
-  //   }
-  // }, [selectedColor, containerColor]);
-
   return (
-    <Container maxWidth='sm'>
+    <Container maxWidth="sm">
       <Box
         sx={{
-          display: 'inline-flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
+          display: "inline-flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
           gap: 2,
           width: {
             sm: 550,
           },
-          justifyContent: 'space-between',
+          justifyContent: "space-between",
           mt: 5,
         }}
       >
         {shuffeledButtonColors.map((color: string) => {
           return (
             <Button
-              variant='contained'
+              variant="contained"
               key={color}
               onClick={() => onSelectColor(color)}
             >

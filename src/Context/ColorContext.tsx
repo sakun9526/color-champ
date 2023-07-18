@@ -1,19 +1,21 @@
-import { createContext, useCallback, useReducer, useEffect } from 'react';
-import { ColorsDigits } from '../Components/utils/ColorsDigits';
-import { IColorContextState } from '../Models';
+import { createContext, useCallback, useReducer, useEffect } from "react";
+import { ColorsDigits } from "../Components/utils/ColorsDigits";
+import { IColorContextState } from "../Models";
 
 const initialState: IColorContextState = {
-  containerColor: '',
-  selectedColor: '',
+  containerColor: "",
+  selectedColor: "",
   buttonColors: [],
   setSelectedColor: () => {},
+  setContainerColor: () => {},
+  setButtonColors: () => {},
 };
 const ColorContext = createContext(initialState);
 
 const ColorContextActions = {
-  SET_CONTAINER_COLOR: 'setContainerColor',
-  SET_SELECTED_COLOR: 'setSelectedColor',
-  SET_BUTTON_COLORS: 'setButtonColors',
+  SET_CONTAINER_COLOR: "setContainerColor",
+  SET_SELECTED_COLOR: "setSelectedColor",
+  SET_BUTTON_COLORS: "setButtonColors",
 };
 
 const reducer = (state: IColorContextState, action: any) => {
@@ -46,11 +48,11 @@ const ColorContextProvider = (props: any) => {
 
   const colorGenerator = useCallback(() => {
     const randomColor = new Array(6)
-      .fill('')
+      .fill("")
       .map(() => {
         return ColorsDigits[Math.floor(Math.random() * ColorsDigits.length)];
       })
-      .join('');
+      .join("");
 
     return `#${randomColor}`;
   }, []);

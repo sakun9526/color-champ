@@ -1,26 +1,34 @@
-import { ToastContainer, toast } from 'react-toastify';
-import { useContext } from 'react';
-import { ColorContext } from '../Context/ColorContext';
+import { ToastContainer, toast } from "react-toastify";
+import { useContext, memo } from "react";
+import { ColorContext } from "../Context/ColorContext";
 
 const ResultNotification = () => {
-  const notify = () => toast.success('Wow so easy !');
-  const { containerColor, selectedColor } = useContext(ColorContext);
+  const {
+    containerColor,
+    selectedColor,
+    setSelectedColor,
+    setContainerColor,
+    setButtonColors,
+  } = useContext(ColorContext);
 
-  console.log('container color', containerColor);
-  console.log('selected color', selectedColor);
+  console.log("container color", containerColor);
+  console.log("selected color", selectedColor);
 
-  if (selectedColor != '') {
+  if (selectedColor != "") {
     if (containerColor === selectedColor) {
-      toast.success('Wow so easy !');
+      toast.success("Wow so easy !");
+      setSelectedColor("");
+      setContainerColor();
+      setButtonColors();
     } else {
-      toast.error('Bad luck');
+      toast.error("Bad luck");
     }
   }
 
   return (
     <>
       <ToastContainer
-        position='top-center'
+        position="top-center"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}

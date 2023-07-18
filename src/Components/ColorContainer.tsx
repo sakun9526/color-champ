@@ -4,7 +4,9 @@ import { ColorContext } from "../Context/ColorContext";
 import { useContext } from "react";
 
 const ColorContainer = () => {
-  const { containerColor } = useContext(ColorContext);
+  const { containerColor, selectedColor, setContainerColor } =
+    useContext(ColorContext);
+
   return (
     <Container maxWidth="sm">
       <Box
