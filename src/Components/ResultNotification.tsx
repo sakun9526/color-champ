@@ -1,5 +1,5 @@
 import { ToastContainer, toast } from "react-toastify";
-import { useContext, memo } from "react";
+import { useContext, useEffect } from "react";
 import { ColorContext } from "../Context/ColorContext";
 
 const ResultNotification = () => {
@@ -14,7 +14,8 @@ const ResultNotification = () => {
   console.log("container color", containerColor);
   console.log("selected color", selectedColor);
 
-  if (selectedColor != "") {
+  useEffect(()=>{
+    if (selectedColor != "") {
     if (containerColor === selectedColor) {
       toast.success("Wow so easy !");
       setSelectedColor("");
@@ -24,6 +25,7 @@ const ResultNotification = () => {
       toast.error("Bad luck");
     }
   }
+  },[selectedColor]);
 
   return (
     <>
