@@ -1,25 +1,24 @@
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Colors from './utils/Colors.json';
-import { useEffect, useState } from 'react';
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import { ColorContext } from "../Context/ColorContext";
+import { useContext } from "react";
 
 const ColorContainer = () => {
-  useEffect(() => {
-    Colors.map((color) => {
-      console.log(color.color);
-    });
-  });
+  const { containerColor, selectedColor, setContainerColor } =
+    useContext(ColorContext);
+
   return (
-    <Container maxWidth='sm'>
+    <Container maxWidth="sm">
       <Box
         sx={{
           width: {
             sm: 550,
           },
           height: 200,
-          backgroundColor: Colors[2].color,
+          backgroundColor: containerColor,
           mt: 15,
           borderRadius: 10,
+          borderColor: "black",
         }}
       />
     </Container>

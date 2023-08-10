@@ -1,12 +1,25 @@
-import React, { useState, useCallback, useEffect, useContext } from 'react';
 import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
+import { useCallback, useContext } from "react";
+import { ColorContext } from "../Context/ColorContext";
 
 const Buttons = () => {
-  const [actualHexValue, setActualHexValue] = useState("");
-  const [otherHexValues, setOtherHexValues] = useState([]);
-  const [selectedHexValue, setSelectedHexValue] = useState("");
+  const { buttonColors, setSelectedColor } = useContext(ColorContext);
+
+  const shuffle = useCallback((array: any) => {
+    return array.sort(() => Math.random() - 0.5);
+  }, []);
+
+  const shuffeledButtonColors = shuffle(buttonColors);
+
+  const onSelectColor = useCallback(
+    (color: string) => {
+      setSelectedColor(color);
+    },
+    [setSelectedColor]
+  );
+
   return (
     <Container maxWidth="sm">
       <Box
@@ -22,10 +35,17 @@ const Buttons = () => {
           mt: 5,
         }}
       >
-        <Button variant="contained">Contained</Button>
-        <Button variant="contained">Contained</Button>
-        <Button variant="contained">Contained</Button>
-        <Button variant="contained">Contained</Button>
+        {shuffeledButtonColors.map((color: string) => {
+          return (
+            <Button
+              variant="contained"
+              key={color}
+              onClick={() => onSelectColor(color)}
+            >
+              {color}
+            </Button>
+          );
+        })}
       </Box>
     </Container>
   );
