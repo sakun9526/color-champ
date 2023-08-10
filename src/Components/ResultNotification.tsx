@@ -15,7 +15,7 @@ const ResultNotification = () => {
   console.log("selected color", selectedColor);
 
   useEffect(()=>{
-    if (selectedColor != "") {
+    if (selectedColor !== "") {
     if (containerColor === selectedColor) {
       toast.success("Wow so easy !");
       setSelectedColor("");

@@ -4,7 +4,7 @@ import { ColorContext } from "../Context/ColorContext";
 import { useContext } from "react";
 
 const ColorContainer = () => {
-  const { containerColor, selectedColor, setContainerColor } =
+  const { containerColor } =
     useContext(ColorContext);
 
   return (
