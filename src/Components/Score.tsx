@@ -1,11 +1,17 @@
+import Typography from "@mui/material/Typography";
 import { useContext } from "react";
 import { ColorContext } from "../Context/ColorContext";
 
 const Score = () => {
   const { score } = useContext(ColorContext);
-  console.log({score})
 
-  return <h3>Your Score is {score}</h3>;
+  return (
+    <>
+      <Typography variant="h5" sx={{ fontFamily: "Inter" }}>
+        Your Score : {score}
+      </Typography>
+    </>
+  );
 };
 
 export default Score;

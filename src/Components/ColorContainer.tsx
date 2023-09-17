@@ -9,7 +9,11 @@ const ColorContainer = () => {
 
   return (
     <Container maxWidth="sm">
-      <Score/>
+      <Box
+        sx={{ display: "flex", flexDirection: "row-reverse", p: "1rem" }}
+      >
+        <Score />
+      </Box>
       <Box
         sx={{
           width: {
@@ -17,7 +21,7 @@ const ColorContainer = () => {
           },
           height: 200,
           backgroundColor: containerColor,
-          mt: 15,
+          mt: 5,
           borderRadius: 10,
           borderColor: "black",
         }}
