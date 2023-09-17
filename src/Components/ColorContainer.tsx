@@ -2,13 +2,14 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { ColorContext } from "../Context/ColorContext";
 import { useContext } from "react";
+import Score from "./Score";
 
 const ColorContainer = () => {
-  const { containerColor } =
-    useContext(ColorContext);
+  const { containerColor } = useContext(ColorContext);
 
   return (
     <Container maxWidth="sm">
+      <Score/>
       <Box
         sx={{
           width: {

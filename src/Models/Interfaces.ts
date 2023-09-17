@@ -4,5 +4,7 @@ export interface IColorContextState {
   buttonColors: string[];
   setSelectedColor: (color: string) => void;
   setContainerColor: () => void
-  setButtonColors: () => void
+  setButtonColors: () => void;
+  setScore: (value: number) => void;
+  score: number
 }
