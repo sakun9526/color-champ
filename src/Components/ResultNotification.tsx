@@ -9,6 +9,8 @@ const ResultNotification = () => {
     setSelectedColor,
     setContainerColor,
     setButtonColors,
+    setScore,
+    score
   } = useContext(ColorContext);
 
   console.log("container color", containerColor);
@@ -17,21 +19,36 @@ const ResultNotification = () => {
   useEffect(()=>{
     if (selectedColor !== "") {
     if (containerColor === selectedColor) {
-      toast.success("Wow so easy !");
+      toast.success("You got it right!");
       setSelectedColor("");
       setContainerColor();
       setButtonColors();
+      handleIncrementScore(score)
     } else {
-      toast.error("Bad luck");
+      toast.error("Bad luck. Try again");
+      handlePenaltyScore(score)
     }
   }
   },[selectedColor]);
+
+  const handleIncrementScore = (value: number) => {
+    value += 10;
+    setScore(value)
+  }
+
+  const handlePenaltyScore = (value: number) => {
+    value -= 5;
+    if(value < 0){
+      value = 0
+    }
+    setScore(value)
+  }
 
   return (
     <>
       <ToastContainer
         position="top-center"
-        autoClose={5000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

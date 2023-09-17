@@ -9,6 +9,8 @@ const initialState: IColorContextState = {
   setSelectedColor: () => {},
   setContainerColor: () => {},
   setButtonColors: () => {},
+  setScore:(value: number) => {},
+  score: 0,
 };
 const ColorContext = createContext(initialState);
 
@@ -16,6 +18,7 @@ const ColorContextActions = {
   SET_CONTAINER_COLOR: "setContainerColor",
   SET_SELECTED_COLOR: "setSelectedColor",
   SET_BUTTON_COLORS: "setButtonColors",
+  SET_SCORE: 'setScore'
 };
 
 const reducer = (state: IColorContextState, action: any) => {
@@ -37,6 +40,12 @@ const reducer = (state: IColorContextState, action: any) => {
         ...state,
         buttonColors: [...action.buttonColors, state.containerColor],
       };
+    }
+    case ColorContextActions.SET_SCORE: {
+      return {
+        ...state,
+        score: action.score
+      }
     }
     default:
       return state;
@@ -92,11 +101,20 @@ const ColorContextProvider = (props: any) => {
     setButtonColors();
   }, []);
 
+  const setScore = useCallback ((value: number) => {
+    console.log('callinhgg')
+    dispatch({
+      type: ColorContextActions.SET_SCORE,
+      score: value
+    })
+  },[dispatch])
+
   const value = {
     ...state,
     setButtonColors,
     setSelectedColor,
     setContainerColor,
+    setScore
   };
 
   return (

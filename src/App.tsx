@@ -3,7 +3,7 @@ import Navbar from './Components/Navbar';
 import ColorContainer from './Components/ColorContainer';
 import Buttons from './Components/Buttons';
 import ResultNotification from './Components/ResultNotification';
-// import Footer from './Components/Footer';
+import Footer from './Components/Footer';
 import { ColorContextProvider } from './Context/ColorContext';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         <ColorContainer />
         <Buttons />
         <ResultNotification />
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </ColorContextProvider>
   );
